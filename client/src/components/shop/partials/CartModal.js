@@ -5,7 +5,7 @@ import { cartListProduct } from "./FetchApi";
 import { isAuthenticate } from "../auth/fetchApi";
 import { cartList } from "../productDetails/Mixins";
 import { subTotal, quantity, totalCost } from "./Mixins";
-//cart url
+
 const apiURL = "https://bee-development.onrender.com";
 
 const CartModal = () => {
