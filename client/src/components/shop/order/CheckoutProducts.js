@@ -120,7 +120,7 @@ export const CheckoutComponent = (props) => {
                         flow: "vault",
                       },
                     }}
-                    onInstance={(instance) => (state.instance = instance)}
+                    onInstance={(instance) => setState(Object.assign({}, state, { instance }))}
                   />
                   <div
                     onClick={(e) =>
