@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect } from "react";
 import { DashboardContext } from "./";
 import { uploadImage, sliderImages, deleteImage } from "./Action";
 
-const apiURL = "https://bee-development-production.up.railway.app";
+const apiURL = process.env.REACT_APP_API_URL;
 
 const Customize = () => {
   const { data, dispatch } = useContext(DashboardContext);
@@ -187,7 +187,7 @@ const AllImages = () => {
           })
         ) : (
           <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center text-xl font-light w-full bg-orange-200 rounded py-2">
-            No slide image found
+            No slider image found
           </div>
         )}
       </div>

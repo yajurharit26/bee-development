@@ -9,7 +9,7 @@ import { fetchData, fetchbrainTree, pay } from "./Action";
 
 import DropIn from "braintree-web-drop-in-react";
 
-const apiURL = "https://bee-development-production.up.railway.app";
+const apiURL = process.env.REACT_APP_API_URL;
 
 export const CheckoutComponent = (props) => {
   const history = useHistory();
@@ -120,7 +120,7 @@ export const CheckoutComponent = (props) => {
                         flow: "vault",
                       },
                     }}
-                    onInstance={(instance) => setState(Object.assign({}, state, { instance }))}
+                    onInstance={(instance) => (state.instance = instance)}
                   />
                   <div
                     onClick={(e) =>
