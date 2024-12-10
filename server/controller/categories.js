@@ -24,7 +24,7 @@ class Category {
         if (err) {
           console.log(err);
         }
-        return res.json({ error: "All filled must be required" });
+        return res.json({ error: "All fields must be required" });
       });
     } else {
       cName = toTitleCase(cName);
@@ -59,7 +59,7 @@ class Category {
   async postEditCategory(req, res) {
     let { cId, cDescription, cStatus } = req.body;
     if (!cId || !cDescription || !cStatus) {
-      return res.json({ error: "All filled must be required" });
+      return res.json({ error: "All fields must be required" });
     }
     try {
       let editCategory = categoryModel.findByIdAndUpdate(cId, {
@@ -69,7 +69,7 @@ class Category {
       });
       let edit = await editCategory.exec();
       if (edit) {
-        return res.json({ success: "Category edited successfully" });
+        return res.json({ success: "Category edit successfully" });
       }
     } catch (err) {
       console.log(err);
@@ -79,7 +79,7 @@ class Category {
   async getDeleteCategory(req, res) {
     let { cId } = req.body;
     if (!cId) {
-      return res.json({ error: "All filled must be required" });
+      return res.json({ error: "All fields must be required" });
     } else {
       try {
         let deletedCategoryFile = await categoryModel.findById(cId);

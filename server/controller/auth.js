@@ -39,7 +39,7 @@ class Auth {
       return res.json({ error });
     }
     if (name.length < 3 || name.length > 25) {
-      error = { ...error, name: "Name must be 3-25 character" };
+      error = { ...error, name: "Name must be 3-25 charecter" };
       return res.json({ error });
     } else {
       if (validateEmail(email)) {
@@ -47,7 +47,7 @@ class Auth {
         if ((password.length > 255) | (password.length < 8)) {
           error = {
             ...error,
-            password: "Password must be 8 character",
+            password: "Password must be 8 charecter",
             name: "",
             email: "",
           };
@@ -77,7 +77,7 @@ class Auth {
                 .save()
                 .then((data) => {
                   return res.json({
-                    success: "Account created successfully. Please login",
+                    success: "Account create successfully. Please login",
                   });
                 })
                 .catch((err) => {

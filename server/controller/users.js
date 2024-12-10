@@ -20,7 +20,7 @@ class User {
   async getSingleUser(req, res) {
     let { uId } = req.body;
     if (!uId) {
-      return res.json({ error: "All filled must be required" });
+      return res.json({ error: "All fields must be required" });
     } else {
       try {
         let User = await userModel
@@ -45,7 +45,7 @@ class User {
       !address ||
       !phone
     ) {
-      return res.json({ message: "All filled must be required" });
+      return res.json({ message: "All fields must be required" });
     } else {
       try {
         let newUser = new userModel({
@@ -69,7 +69,7 @@ class User {
   async postEditUser(req, res) {
     let { uId, name, phoneNumber } = req.body;
     if (!uId || !name || !phoneNumber) {
-      return res.json({ message: "All filled must be required" });
+      return res.json({ message: "All fields must be required" });
     } else {
       let currentUser = userModel.findByIdAndUpdate(uId, {
         name: name,
@@ -86,7 +86,7 @@ class User {
   async getDeleteUser(req, res) {
     let { oId, status } = req.body;
     if (!oId || !status) {
-      return res.json({ message: "All filled must be required" });
+      return res.json({ message: "All fields must be required" });
     } else {
       let currentUser = userModel.findByIdAndUpdate(oId, {
         status: status,
@@ -102,7 +102,7 @@ class User {
   async changePassword(req, res) {
     let { uId, oldPassword, newPassword } = req.body;
     if (!uId || !oldPassword || !newPassword) {
-      return res.json({ message: "All filled must be required" });
+      return res.json({ message: "All fields must be required" });
     } else {
       const data = await userModel.findOne({ _id: uId });
       if (!data) {
